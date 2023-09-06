@@ -23,7 +23,7 @@
           <tr>
             <td><%= image_tag @book.user.get_profile_image(100, 100) %></td>  <td><%= @book.title %></td>  <td><%= @book.body %></td>
             <td class="btn btm-sm btn-success">
-              <%= link_to "Edit", edit_book_path(@book.id) %>
+              <%= link_to "Edit", edit_user_path(@book) %>
             </td>
             <td class="btn btm-sm btn-danger">
               <%= link_to "Destroy", book_path(@book), method: :delete,"data-confirm"=>"本当に消しますか？" %>
