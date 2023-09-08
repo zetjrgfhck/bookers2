@@ -13,27 +13,57 @@
 
   <body>
     <header>
-      <h1>
-      <%= link_to "Bookers", root_path %></h1>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        <li>
-          <%= link_to "Users", user_path(current_user.id) %></li>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+          <span>
+            <%= link_to "Bookers", root_path, class: "navbar-brand" %>
+          </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                  aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggle-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse show" id="navbarNavDropdown" style>
+            <ul class="navbar-nav ml-auto">
+              <a class="nav-link text-light" href="/">
+               <i class="fa-solid fa-house"></i>Home</a>
 
+              <% if user_signed_in? %>
+              <li>
+                <a class="nav-link text-light" href="/users">
+                  <i class="fa-solid fa-users"></i>Users</a>
+              </li>
 
+              <li>
+                <a class="nav-link text-light" href="/books">
+                  <i class="fa-solid fa-book-open"></i>Books</a>
+              </li>
 
-       <% else %>
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
-        <li>
-          <%= link_to "about", about_path %>
-        </li>
-      <% end %>
+              <li>
+                <a class="nav-link text-light" href="/users/sign_out">
+                <i class="fa-solid fa-right-from-bracket"></i>Log_out</a>
+              </li>
+             <% else %>
+              <li>
+                <a class="nav-link text-light" href="/home/about">
+                <i class="fa-solid fa-link"></i>about</a>
+              </li>
+
+              <li>
+                <a class="nav-link text-light" href="/users/sign_up">
+                <i class="fa-solid fa-user-plus"></i>Sign_up</a>
+              </li>
+
+              <li>
+                <a class="nav-link text-light" href="/users/sign_in">
+                <i class="fa-solid fa-right-to-bracket"></i>Log_in</a>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
     <%= yield %>
 
