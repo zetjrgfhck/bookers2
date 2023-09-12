@@ -1,6 +1,6 @@
       <div class="row">
         <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
-        <i class="fa-solid fa-user-gear"></i>
+        <i class="fa-solid fa-user-cog"></i>
         <% end %>
       </div>
 
@@ -13,7 +13,7 @@
         <% end %>
       </ul>
         <% end %>
-        
+
       <%= form_with model: book do |f| %>
         <h6>Title</h6>
         <%= f.text_field :title %>
