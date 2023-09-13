@@ -34,19 +34,19 @@
               <%= @book.title %>
               <% end %>
             </td>
-
             <td><%= @book.body %></td>
 
-            <td class="btn btm-sm btn-success">
-              <% if @book.user == current_user %>
+            <% if @book.user == current_user %>
+              <td class="btn btm-sm btn-success">
               <%= link_to "Edit", edit_book_path(@book) %>
-              <% end %>
-            </td>
-            <td class="btn btm-sm btn-danger">
-              <% if @book.user == current_user %>
+              </td>
+            <% end %>
+
+            <% if @book.user == current_user %>
+              <td class="btn btm-sm btn-danger">
               <%= link_to "Destroy", book_path(@book), method: :delete,"data-confirm"=>"本当に消しますか？" %>
-              <% end %>
-            </td>
+              </td>
+            <% end %>
           </tr>
         </tbody>
       </table>
